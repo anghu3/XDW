@@ -1,0 +1,2319 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title>携带物2.0-自动化测试报告</title>
+    <meta name="generator" content="HTMLTestRunner 0.8.2"/>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+    
+<style type="text/css" media="screen">
+body        { font-family: verdana, arial, helvetica, sans-serif; font-size: 80%; }
+table       { font-size: 100%; }
+pre         { }
+
+/* -- heading ---------------------------------------------------------------------- */
+h1 {
+	font-size: 16pt;
+	color: gray;
+}
+.heading {
+    margin-top: 0ex;
+    margin-bottom: 1ex;
+}
+
+.heading .attribute {
+    margin-top: 1ex;
+    margin-bottom: 0;
+}
+
+.heading .description {
+    margin-top: 4ex;
+    margin-bottom: 6ex;
+}
+
+/* -- css div popup ------------------------------------------------------------------------ */
+a.popup_link {
+}
+
+a.popup_link:hover {
+    color: red;
+}
+
+.popup_window {
+    display: none;
+    position: relative;
+    left: 0px;
+    top: 0px;
+    /*border: solid #627173 1px; */
+    padding: 10px;
+    background-color: #E6E6D6;
+    font-family: "Lucida Console", "Courier New", Courier, monospace;
+    text-align: left;
+    font-size: 8pt;
+    width: 500px;
+}
+
+}
+/* -- report ------------------------------------------------------------------------ */
+#show_detail_line {
+    margin-top: 3ex;
+    margin-bottom: 1ex;
+}
+#result_table {
+    width: 80%;
+    border-collapse: collapse;
+    border: 1px solid #777;
+}
+#header_row {
+    font-weight: bold;
+    color: white;
+    background-color: #777;
+}
+#result_table td {
+    border: 1px solid #777;
+    padding: 2px;
+}
+#total_row  { font-weight: bold; }
+.passClass  { background-color: #6c6; }
+.failClass  { background-color: #c60; }
+.errorClass { background-color: #c00; }
+.passCase   { color: #6c6; }
+.failCase   { color: #c60; font-weight: bold; }
+.errorCase  { color: #c00; font-weight: bold; }
+.hiddenRow  { display: none; }
+.testcase   { margin-left: 2em; }
+
+
+/* -- ending ---------------------------------------------------------------------- */
+#ending {
+}
+
+</style>
+
+</head>
+<body>
+<script language="javascript" type="text/javascript"><!--
+output_list = Array();
+
+/* level - 0:Summary; 1:Failed; 2:All */
+function showCase(level) {
+    trs = document.getElementsByTagName("tr");
+    for (var i = 0; i < trs.length; i++) {
+        tr = trs[i];
+        id = tr.id;
+        if (id.substr(0,2) == 'ft') {
+            if (level < 1) {
+                tr.className = 'hiddenRow';
+            }
+            else {
+                tr.className = '';
+            }
+        }
+        if (id.substr(0,2) == 'pt') {
+            if (level > 1) {
+                tr.className = '';
+            }
+            else {
+                tr.className = 'hiddenRow';
+            }
+        }
+    }
+}
+
+
+function showClassDetail(cid, count) {
+    var id_list = Array(count);
+    var toHide = 1;
+    for (var i = 0; i < count; i++) {
+        tid0 = 't' + cid.substr(1) + '.' + (i+1);
+        tid = 'f' + tid0;
+        tr = document.getElementById(tid);
+        if (!tr) {
+            tid = 'p' + tid0;
+            tr = document.getElementById(tid);
+        }
+        id_list[i] = tid;
+        if (tr.className) {
+            toHide = 0;
+        }
+    }
+    for (var i = 0; i < count; i++) {
+        tid = id_list[i];
+        if (toHide) {
+            document.getElementById('div_'+tid).style.display = 'none'
+            document.getElementById(tid).className = 'hiddenRow';
+        }
+        else {
+            document.getElementById(tid).className = '';
+        }
+    }
+}
+
+
+function showTestDetail(div_id){
+    var details_div = document.getElementById(div_id)
+    var displayState = details_div.style.display
+    // alert(displayState)
+    if (displayState != 'block' ) {
+        displayState = 'block'
+        details_div.style.display = 'block'
+    }
+    else {
+        details_div.style.display = 'none'
+    }
+}
+
+
+function html_escape(s) {
+    s = s.replace(/&/g,'&amp;');
+    s = s.replace(/</g,'&lt;');
+    s = s.replace(/>/g,'&gt;');
+    return s;
+}
+
+/* obsoleted by detail in <div>
+function showOutput(id, name) {
+    var w = window.open("", //url
+                    name,
+                    "resizable,scrollbars,status,width=800,height=450");
+    d = w.document;
+    d.write("<pre>");
+    d.write(html_escape(output_list[id]));
+    d.write("\n");
+    d.write("<a href='javascript:window.close()'>close</a>\n");
+    d.write("</pre>\n");
+    d.close();
+}
+*/
+--></script>
+
+<div class='heading'>
+<h1>携带物2.0-自动化测试报告</h1>
+<p class='attribute'><strong>Start Time:</strong> 2019-07-26 18:34:25</p>
+<p class='attribute'><strong>Duration:</strong> 2:32:10.011954</p>
+<p class='attribute'><strong>Status:</strong> Pass 297 Failure 4</p>
+
+<p class='description'>用例执行情况：</p>
+</div>
+
+
+
+<p id='show_detail_line'>Show
+<a href='javascript:showCase(0)'>Summary</a>
+<a href='javascript:showCase(1)'>Failed</a>
+<a href='javascript:showCase(2)'>All</a>
+</p>
+<table id='result_table'>
+<colgroup>
+<col align='left' />
+<col align='right' />
+<col align='right' />
+<col align='right' />
+<col align='right' />
+<col align='right' />
+</colgroup>
+<tr id='header_row'>
+    <td>Test Group/Test case</td>
+    <td>Count</td>
+    <td>Pass</td>
+    <td>Fail</td>
+    <td>Error</td>
+    <td>View</td>
+</tr>
+
+<tr class='passClass'>
+    <td>CKGL.test出库.xdwcy_TestCase</td>
+    <td>15</td>
+    <td>15</td>
+    <td>0</td>
+    <td>0</td>
+    <td><a href="javascript:showClassDetail('c1',15)">Detail</a></td>
+</tr>
+
+<tr id='pt1.1' class='hiddenRow'>
+    <td class='none'><div class='testcase'>test01_出库_正常出库_查询_物品编号</div></td>
+    <td colspan='5' align='center'>pass</td>
+</tr>
+
+<tr id='pt1.2' class='hiddenRow'>
+    <td class='none'><div class='testcase'>test02_出库_正常出库_查询_名称</div></td>
+    <td colspan='5' align='center'>pass</td>
+</tr>
+
+<tr id='pt1.3' class='hiddenRow'>
+    <td class='none'><div class='testcase'>test03_出库_正常出库_查询_入库时间</div></td>
+    <td colspan='5' align='center'>pass</td>
+</tr>
+
+<tr id='pt1.4' class='hiddenRow'>
+    <td class='none'><div class='testcase'>test04_出库_正常出库_查询_截获方法</div></td>
+    <td colspan='5' align='center'>pass</td>
+</tr>
+
+<tr id='pt1.5' class='hiddenRow'>
+    <td class='none'><div class='testcase'>test05_出库_正常出库_查询_出库类型</div></td>
+    <td colspan='5' align='center'>pass</td>
+</tr>
+
+<tr id='pt1.6' class='hiddenRow'>
+    <td class='none'><div class='testcase'>test06_出库_送检出库_查询_物品编号</div></td>
+    <td colspan='5' align='center'>pass</td>
+</tr>
+
+<tr id='pt1.7' class='hiddenRow'>
+    <td class='none'><div class='testcase'>test07_出库_送检出库_查询_名称</div></td>
+    <td colspan='5' align='center'>pass</td>
+</tr>
+
+<tr id='pt1.8' class='hiddenRow'>
+    <td class='none'><div class='testcase'>test08_出库_送检出库_查询_入库时间</div></td>
+    <td colspan='5' align='center'>pass</td>
+</tr>
+
+<tr id='pt1.9' class='hiddenRow'>
+    <td class='none'><div class='testcase'>test09_出库_送检出库_查询_截获方法</div></td>
+    <td colspan='5' align='center'>pass</td>
+</tr>
+
+<tr id='pt1.10' class='hiddenRow'>
+    <td class='none'><div class='testcase'>test10_出库_送检出库_查询_出库类型</div></td>
+    <td colspan='5' align='center'>pass</td>
+</tr>
+
+<tr id='pt1.11' class='hiddenRow'>
+    <td class='none'><div class='testcase'>test11_出库_特殊出库_查询_物品编号</div></td>
+    <td colspan='5' align='center'>pass</td>
+</tr>
+
+<tr id='pt1.12' class='hiddenRow'>
+    <td class='none'><div class='testcase'>test12_出库_特殊出库_查询_名称</div></td>
+    <td colspan='5' align='center'>pass</td>
+</tr>
+
+<tr id='pt1.13' class='hiddenRow'>
+    <td class='none'><div class='testcase'>test13_出库_特殊出库_查询_入库时间</div></td>
+    <td colspan='5' align='center'>pass</td>
+</tr>
+
+<tr id='pt1.14' class='hiddenRow'>
+    <td class='none'><div class='testcase'>test14_出库_特殊出库_查询_截获方法</div></td>
+    <td colspan='5' align='center'>pass</td>
+</tr>
+
+<tr id='pt1.15' class='hiddenRow'>
+    <td class='none'><div class='testcase'>test15_出库_特殊出库_查询_出库类型</div></td>
+    <td colspan='5' align='center'>pass</td>
+</tr>
+
+<tr class='passClass'>
+    <td>CKGL.test转库.xdwcy_TestCase</td>
+    <td>4</td>
+    <td>4</td>
+    <td>0</td>
+    <td>0</td>
+    <td><a href="javascript:showClassDetail('c2',4)">Detail</a></td>
+</tr>
+
+<tr id='pt2.1' class='hiddenRow'>
+    <td class='none'><div class='testcase'>test01_转库_查询_物品编号</div></td>
+    <td colspan='5' align='center'>pass</td>
+</tr>
+
+<tr id='pt2.2' class='hiddenRow'>
+    <td class='none'><div class='testcase'>test02_转库_查询_物品名称</div></td>
+    <td colspan='5' align='center'>pass</td>
+</tr>
+
+<tr id='pt2.3' class='hiddenRow'>
+    <td class='none'><div class='testcase'>test03_转库_查询_入库人</div></td>
+    <td colspan='5' align='center'>pass</td>
+</tr>
+
+<tr id='pt2.4' class='hiddenRow'>
+    <td class='none'><div class='testcase'>test04_转库_查询_入库日期</div></td>
+    <td colspan='5' align='center'>pass</td>
+</tr>
+
+<tr class='passClass'>
+    <td>CKGL.test转库接收确认.xdwcy_TestCase</td>
+    <td>3</td>
+    <td>3</td>
+    <td>0</td>
+    <td>0</td>
+    <td><a href="javascript:showClassDetail('c3',3)">Detail</a></td>
+</tr>
+
+<tr id='pt3.1' class='hiddenRow'>
+    <td class='none'><div class='testcase'>test01_转库接收确认_查询_物品编号</div></td>
+    <td colspan='5' align='center'>pass</td>
+</tr>
+
+<tr id='pt3.2' class='hiddenRow'>
+    <td class='none'><div class='testcase'>test02_转库接收确认_查询_物品名称</div></td>
+    <td colspan='5' align='center'>pass</td>
+</tr>
+
+<tr id='pt3.3' class='hiddenRow'>
+    <td class='none'><div class='testcase'>test03_转库接收确认_查询_截获时间</div></td>
+    <td colspan='5' align='center'>pass</td>
+</tr>
+
+<tr class='passClass'>
+    <td>CKGL.test退回.xdwcy_TestCase</td>
+    <td>4</td>
+    <td>4</td>
+    <td>0</td>
+    <td>0</td>
+    <td><a href="javascript:showClassDetail('c4',4)">Detail</a></td>
+</tr>
+
+<tr id='pt4.1' class='hiddenRow'>
+    <td class='none'><div class='testcase'>test01_退回_查询_物品编号</div></td>
+    <td colspan='5' align='center'>pass</td>
+</tr>
+
+<tr id='pt4.2' class='hiddenRow'>
+    <td class='none'><div class='testcase'>test02_退回_查询_物品名称</div></td>
+    <td colspan='5' align='center'>pass</td>
+</tr>
+
+<tr id='pt4.3' class='hiddenRow'>
+    <td class='none'><div class='testcase'>test03_退回_查询_截获日期</div></td>
+    <td colspan='5' align='center'>pass</td>
+</tr>
+
+<tr id='pt4.4' class='hiddenRow'>
+    <td class='none'><div class='testcase'>test04_退回_查询_组合查询</div></td>
+    <td colspan='5' align='center'>pass</td>
+</tr>
+
+<tr class='passClass'>
+    <td>CYCL.test其他截留物处理.xdw_TestCase</td>
+    <td>5</td>
+    <td>5</td>
+    <td>0</td>
+    <td>0</td>
+    <td><a href="javascript:showClassDetail('c5',5)">Detail</a></td>
+</tr>
+
+<tr id='pt5.1' class='hiddenRow'>
+    <td class='none'><div class='testcase'>test01_其他截留物处理_查询_物品编号</div></td>
+    <td colspan='5' align='center'>pass</td>
+</tr>
+
+<tr id='pt5.2' class='hiddenRow'>
+    <td class='none'><div class='testcase'>test02_其他截留物处理_查询_物品名称</div></td>
+    <td colspan='5' align='center'>pass</td>
+</tr>
+
+<tr id='pt5.3' class='hiddenRow'>
+    <td class='none'><div class='testcase'>test03_其他截留物处理_查询_截留状态</div></td>
+    <td colspan='5' align='center'>pass</td>
+</tr>
+
+<tr id='pt5.4' class='hiddenRow'>
+    <td class='none'><div class='testcase'>test04_其他截留物处理_查询_状态</div></td>
+    <td colspan='5' align='center'>pass</td>
+</tr>
+
+<tr id='pt5.5' class='hiddenRow'>
+    <td class='none'><div class='testcase'>test05_其他截留物处理_处理_合格放行</div></td>
+    <td colspan='5' align='center'>pass</td>
+</tr>
+
+<tr class='passClass'>
+    <td>CYCL.test出入境携带物查验.xdw_TestCase</td>
+    <td>9</td>
+    <td>9</td>
+    <td>0</td>
+    <td>0</td>
+    <td><a href="javascript:showClassDetail('c6',9)">Detail</a></td>
+</tr>
+
+<tr id='pt6.1' class='hiddenRow'>
+    <td class='none'><div class='testcase'>test01_销毁</div></td>
+    <td colspan='5' align='center'>pass</td>
+</tr>
+
+<tr id='pt6.2' class='hiddenRow'>
+    <td class='none'><div class='testcase'>test02_退回_立即</div></td>
+    <td colspan='5' align='center'>pass</td>
+</tr>
+
+<tr id='pt6.3' class='hiddenRow'>
+    <td class='none'><div class='testcase'>test03_退回_限期</div></td>
+    <td colspan='5' align='center'>pass</td>
+</tr>
+
+<tr id='pt6.4' class='hiddenRow'>
+    <td class='none'><div class='testcase'>test04_截留_移交法制部门</div></td>
+    <td colspan='5' align='center'>pass</td>
+</tr>
+
+<tr id='pt6.5' class='hiddenRow'>
+    <td class='none'><div class='testcase'>test05_截留_补办手续</div></td>
+    <td colspan='5' align='center'>pass</td>
+</tr>
+
+<tr id='pt6.6' class='hiddenRow'>
+    <td class='none'><div class='testcase'>test06_截留_实验室检疫</div></td>
+    <td colspan='5' align='center'>pass</td>
+</tr>
+
+<tr id='pt6.7' class='hiddenRow'>
+    <td class='none'><div class='testcase'>test07_截留_风险评估</div></td>
+    <td colspan='5' align='center'>pass</td>
+</tr>
+
+<tr id='pt6.8' class='hiddenRow'>
+    <td class='none'><div class='testcase'>test08_放行</div></td>
+    <td colspan='5' align='center'>pass</td>
+</tr>
+
+<tr id='pt6.9' class='hiddenRow'>
+    <td class='none'><div class='testcase'>test09_隔离检疫</div></td>
+    <td colspan='5' align='center'>pass</td>
+</tr>
+
+<tr class='passClass'>
+    <td>CYCL.test异常单据处理.xdw_TestCase</td>
+    <td>6</td>
+    <td>6</td>
+    <td>0</td>
+    <td>0</td>
+    <td><a href="javascript:showClassDetail('c7',6)">Detail</a></td>
+</tr>
+
+<tr id='pt7.1' class='hiddenRow'>
+    <td class='none'><div class='testcase'>test01_异常单据处理_查询_截留单号</div></td>
+    <td colspan='5' align='center'>pass</td>
+</tr>
+
+<tr id='pt7.2' class='hiddenRow'>
+    <td class='none'><div class='testcase'>test02_异常单据处理_查询_物品名称</div></td>
+    <td colspan='5' align='center'>pass</td>
+</tr>
+
+<tr id='pt7.3' class='hiddenRow'>
+    <td class='none'><div class='testcase'>test03_异常单据处理_查询_录入时间开始</div></td>
+    <td colspan='5' align='center'>pass</td>
+</tr>
+
+<tr id='pt7.4' class='hiddenRow'>
+    <td class='none'><div class='testcase'>test04_异常单据处理_查询_录入时间结束</div></td>
+    <td colspan='5' align='center'>pass</td>
+</tr>
+
+<tr id='pt7.5' class='hiddenRow'>
+    <td class='none'><div class='testcase'>test05_异常单据处理_查询_审核状态</div></td>
+    <td colspan='5' align='center'>pass</td>
+</tr>
+
+<tr id='pt7.6' class='hiddenRow'>
+    <td class='none'><div class='testcase'>test06_异常单据处理_查询_组合查询</div></td>
+    <td colspan='5' align='center'>pass</td>
+</tr>
+
+<tr class='passClass'>
+    <td>CYCL.test截留物打印.xdw_TestCase</td>
+    <td>8</td>
+    <td>8</td>
+    <td>0</td>
+    <td>0</td>
+    <td><a href="javascript:showClassDetail('c8',8)">Detail</a></td>
+</tr>
+
+<tr id='pt8.1' class='hiddenRow'>
+    <td class='none'><div class='testcase'>test01_截留物打印_查询_截留单编号</div></td>
+    <td colspan='5' align='center'>pass</td>
+</tr>
+
+<tr id='pt8.2' class='hiddenRow'>
+    <td class='none'><div class='testcase'>test02_截留物打印_查询_名称</div></td>
+    <td colspan='5' align='center'>pass</td>
+</tr>
+
+<tr id='pt8.3' class='hiddenRow'>
+    <td class='none'><div class='testcase'>test03_截留物打印_查询_结果日期_开始</div></td>
+    <td colspan='5' align='center'>pass</td>
+</tr>
+
+<tr id='pt8.4' class='hiddenRow'>
+    <td class='none'><div class='testcase'>test04_截留物打印_查询_截获日期_结束</div></td>
+    <td colspan='5' align='center'>pass</td>
+</tr>
+
+<tr id='pt8.5' class='hiddenRow'>
+    <td class='none'><div class='testcase'>test05_截留物打印_查询_状态_已打印</div></td>
+    <td colspan='5' align='center'>pass</td>
+</tr>
+
+<tr id='pt8.6' class='hiddenRow'>
+    <td class='none'><div class='testcase'>test06_截留物打印_查询_状态_未打印</div></td>
+    <td colspan='5' align='center'>pass</td>
+</tr>
+
+<tr id='pt8.7' class='hiddenRow'>
+    <td class='none'><div class='testcase'>test07_截留物打印_查询_印刷号</div></td>
+    <td colspan='5' align='center'>pass</td>
+</tr>
+
+<tr id='pt8.8' class='hiddenRow'>
+    <td class='none'><div class='testcase'>test08_截留物打印_查询_全部条件组合</div></td>
+    <td colspan='5' align='center'>pass</td>
+</tr>
+
+<tr class='passClass'>
+    <td>CYCL.test现场转库或入库.xdw_TestCase</td>
+    <td>9</td>
+    <td>9</td>
+    <td>0</td>
+    <td>0</td>
+    <td><a href="javascript:showClassDetail('c9',9)">Detail</a></td>
+</tr>
+
+<tr id='pt9.1' class='hiddenRow'>
+    <td class='none'><div class='testcase'>test01_现场转库或入库_查询_截获开始日期</div></td>
+    <td colspan='5' align='center'>pass</td>
+</tr>
+
+<tr id='pt9.2' class='hiddenRow'>
+    <td class='none'><div class='testcase'>test02_现场转库或入库_查询_截获结束日期</div></td>
+    <td colspan='5' align='center'>pass</td>
+</tr>
+
+<tr id='pt9.3' class='hiddenRow'>
+    <td class='none'><div class='testcase'>test03_现场转库或入库_查询_物品编号</div></td>
+    <td colspan='5' align='center'>pass</td>
+</tr>
+
+<tr id='pt9.4' class='hiddenRow'>
+    <td class='none'><div class='testcase'>test04_现场转库或入库_查询_物品名称</div></td>
+    <td colspan='5' align='center'>pass</td>
+</tr>
+
+<tr id='pt9.5' class='hiddenRow'>
+    <td class='none'><div class='testcase'>test05_现场转库或入库_查询_分类</div></td>
+    <td colspan='5' align='center'>pass</td>
+</tr>
+
+<tr id='pt9.6' class='hiddenRow'>
+    <td class='none'><div class='testcase'>test06_现场转库或入库_查询_截获方法</div></td>
+    <td colspan='5' align='center'>pass</td>
+</tr>
+
+<tr id='pt9.7' class='hiddenRow'>
+    <td class='none'><div class='testcase'>test07_现场转库或入库_查询_组合查询</div></td>
+    <td colspan='5' align='center'>pass</td>
+</tr>
+
+<tr id='pt9.8' class='hiddenRow'>
+    <td class='none'><div class='testcase'>test08_现场转库或入库_入库</div></td>
+    <td colspan='5' align='center'>pass</td>
+</tr>
+
+<tr id='pt9.9' class='hiddenRow'>
+    <td class='none'><div class='testcase'>test09_现场转库或入库_转库</div></td>
+    <td colspan='5' align='center'>pass</td>
+</tr>
+
+<tr class='passClass'>
+    <td>CYCL.test移交法制部门截留处理.xdw_TestCase</td>
+    <td>1</td>
+    <td>1</td>
+    <td>0</td>
+    <td>0</td>
+    <td><a href="javascript:showClassDetail('c10',1)">Detail</a></td>
+</tr>
+
+<tr id='pt10.1' class='hiddenRow'>
+    <td class='none'><div class='testcase'>test01_移交法制部门截留处理_查询_截留单号</div></td>
+    <td colspan='5' align='center'>pass</td>
+</tr>
+
+<tr class='passClass'>
+    <td>CYCL.test送样结果录入.xdw_TestCase</td>
+    <td>5</td>
+    <td>5</td>
+    <td>0</td>
+    <td>0</td>
+    <td><a href="javascript:showClassDetail('c11',5)">Detail</a></td>
+</tr>
+
+<tr id='pt11.1' class='hiddenRow'>
+    <td class='none'><div class='testcase'>test01_送样结果录入_查询_物品编号</div></td>
+    <td colspan='5' align='center'>pass</td>
+</tr>
+
+<tr id='pt11.2' class='hiddenRow'>
+    <td class='none'><div class='testcase'>test02_送样结果录入_查询_物品名称</div></td>
+    <td colspan='5' align='center'>pass</td>
+</tr>
+
+<tr id='pt11.3' class='hiddenRow'>
+    <td class='none'><div class='testcase'>test03_送样结果录入_查询_送样时间开始</div></td>
+    <td colspan='5' align='center'>pass</td>
+</tr>
+
+<tr id='pt11.4' class='hiddenRow'>
+    <td class='none'><div class='testcase'>test04_送样结果录入_查询_送样时间结束</div></td>
+    <td colspan='5' align='center'>pass</td>
+</tr>
+
+<tr id='pt11.5' class='hiddenRow'>
+    <td class='none'><div class='testcase'>test05_送样结果录入_查询_录入状态</div></td>
+    <td colspan='5' align='center'>pass</td>
+</tr>
+
+<tr class='passClass'>
+    <td>CYCL.test隔离检疫.xdw_TestCase</td>
+    <td>1</td>
+    <td>1</td>
+    <td>0</td>
+    <td>0</td>
+    <td><a href="javascript:showClassDetail('c12',1)">Detail</a></td>
+</tr>
+
+<tr id='pt12.1' class='hiddenRow'>
+    <td class='none'><div class='testcase'>test01_隔离检疫_查询_状态</div></td>
+    <td colspan='5' align='center'>pass</td>
+</tr>
+
+<tr class='passClass'>
+    <td>DJJL.test入库记录.xdwcy_TestCase</td>
+    <td>5</td>
+    <td>5</td>
+    <td>0</td>
+    <td>0</td>
+    <td><a href="javascript:showClassDetail('c13',5)">Detail</a></td>
+</tr>
+
+<tr id='pt13.1' class='hiddenRow'>
+    <td class='none'><div class='testcase'>test01_入库记录_查询_物品编号</div></td>
+    <td colspan='5' align='center'>pass</td>
+</tr>
+
+<tr id='pt13.2' class='hiddenRow'>
+    <td class='none'><div class='testcase'>test02_入库记录_查询_物品名称</div></td>
+    <td colspan='5' align='center'>pass</td>
+</tr>
+
+<tr id='pt13.3' class='hiddenRow'>
+    <td class='none'><div class='testcase'>test03_入库记录_查询_入库日期</div></td>
+    <td colspan='5' align='center'>pass</td>
+</tr>
+
+<tr id='pt13.4' class='hiddenRow'>
+    <td class='none'><div class='testcase'>test04_入库记录_查询_组合查询</div></td>
+    <td colspan='5' align='center'>pass</td>
+</tr>
+
+<tr id='pt13.5' class='hiddenRow'>
+    <td class='none'><div class='testcase'>test05_入库记录_查询_导出</div></td>
+    <td colspan='5' align='center'>pass</td>
+</tr>
+
+<tr class='passClass'>
+    <td>DJJL.test出库记录.xdwcy_TestCase</td>
+    <td>7</td>
+    <td>7</td>
+    <td>0</td>
+    <td>0</td>
+    <td><a href="javascript:showClassDetail('c14',7)">Detail</a></td>
+</tr>
+
+<tr id='pt14.1' class='hiddenRow'>
+    <td class='none'><div class='testcase'>test01_出库记录_查询_物品编号</div></td>
+    <td colspan='5' align='center'>pass</td>
+</tr>
+
+<tr id='pt14.2' class='hiddenRow'>
+    <td class='none'><div class='testcase'>test02_出库记录_查询_物品名称</div></td>
+    <td colspan='5' align='center'>pass</td>
+</tr>
+
+<tr id='pt14.3' class='hiddenRow'>
+    <td class='none'><div class='testcase'>test03_出库记录_查询_物品类别</div></td>
+    <td colspan='5' align='center'>pass</td>
+</tr>
+
+<tr id='pt14.4' class='hiddenRow'>
+    <td class='none'><div class='testcase'>test04_出库记录_查询_出库时间</div></td>
+    <td colspan='5' align='center'>pass</td>
+</tr>
+
+<tr id='pt14.5' class='hiddenRow'>
+    <td class='none'><div class='testcase'>test05_出库记录_查询_出库类型</div></td>
+    <td colspan='5' align='center'>pass</td>
+</tr>
+
+<tr id='pt14.6' class='hiddenRow'>
+    <td class='none'><div class='testcase'>test06_出库记录_查询_出库时间</div></td>
+    <td colspan='5' align='center'>pass</td>
+</tr>
+
+<tr id='pt14.7' class='hiddenRow'>
+    <td class='none'><div class='testcase'>test06_出库记录_查询_导出</div></td>
+    <td colspan='5' align='center'>pass</td>
+</tr>
+
+<tr class='passClass'>
+    <td>DJJL.test现场退回记录.xdwcy_TestCase</td>
+    <td>6</td>
+    <td>6</td>
+    <td>0</td>
+    <td>0</td>
+    <td><a href="javascript:showClassDetail('c15',6)">Detail</a></td>
+</tr>
+
+<tr id='pt15.1' class='hiddenRow'>
+    <td class='none'><div class='testcase'>test01_隔离检疫记录_查询_物品编号</div></td>
+    <td colspan='5' align='center'>pass</td>
+</tr>
+
+<tr id='pt15.2' class='hiddenRow'>
+    <td class='none'><div class='testcase'>test02_隔离检疫记录_查询_证件号</div></td>
+    <td colspan='5' align='center'>pass</td>
+</tr>
+
+<tr id='pt15.3' class='hiddenRow'>
+    <td class='none'><div class='testcase'>test03_隔离检疫记录_查询_物品名称</div></td>
+    <td colspan='5' align='center'>pass</td>
+</tr>
+
+<tr id='pt15.4' class='hiddenRow'>
+    <td class='none'><div class='testcase'>test04_隔离检疫记录_查询_组合查询</div></td>
+    <td colspan='5' align='center'>pass</td>
+</tr>
+
+<tr id='pt15.5' class='hiddenRow'>
+    <td class='none'><div class='testcase'>test05_隔离检疫记录_查看</div></td>
+    <td colspan='5' align='center'>pass</td>
+</tr>
+
+<tr id='pt15.6' class='hiddenRow'>
+    <td class='none'><div class='testcase'>test06_隔离检疫记录_导出</div></td>
+    <td colspan='5' align='center'>pass</td>
+</tr>
+
+<tr class='passClass'>
+    <td>DJJL.test移交保护部门出库单据.xdwcy_TestCase</td>
+    <td>4</td>
+    <td>4</td>
+    <td>0</td>
+    <td>0</td>
+    <td><a href="javascript:showClassDetail('c16',4)">Detail</a></td>
+</tr>
+
+<tr id='pt16.1' class='hiddenRow'>
+    <td class='none'><div class='testcase'>test01_送检出库单据_查询_送检单号</div></td>
+    <td colspan='5' align='center'>pass</td>
+</tr>
+
+<tr id='pt16.2' class='hiddenRow'>
+    <td class='none'><div class='testcase'>test02_送检出库单据_查询_物品编号</div></td>
+    <td colspan='5' align='center'>pass</td>
+</tr>
+
+<tr id='pt16.3' class='hiddenRow'>
+    <td class='none'><div class='testcase'>test03_送检出库单据_查询_送检日期</div></td>
+    <td colspan='5' align='center'>pass</td>
+</tr>
+
+<tr id='pt16.4' class='hiddenRow'>
+    <td class='none'><div class='testcase'>test04_送检出库单据_查询_组合查询</div></td>
+    <td colspan='5' align='center'>pass</td>
+</tr>
+
+<tr class='passClass'>
+    <td>DJJL.test转库单据.xdwcy_TestCase</td>
+    <td>8</td>
+    <td>8</td>
+    <td>0</td>
+    <td>0</td>
+    <td><a href="javascript:showClassDetail('c17',8)">Detail</a></td>
+</tr>
+
+<tr id='pt17.1' class='hiddenRow'>
+    <td class='none'><div class='testcase'>test01_转库单据_查询_转库单号</div></td>
+    <td colspan='5' align='center'>pass</td>
+</tr>
+
+<tr id='pt17.2' class='hiddenRow'>
+    <td class='none'><div class='testcase'>test02_转库单据_查询_物品编号</div></td>
+    <td colspan='5' align='center'>pass</td>
+</tr>
+
+<tr id='pt17.3' class='hiddenRow'>
+    <td class='none'><div class='testcase'>test03_转库单据_查询_物品名称</div></td>
+    <td colspan='5' align='center'>pass</td>
+</tr>
+
+<tr id='pt17.4' class='hiddenRow'>
+    <td class='none'><div class='testcase'>test04_转库单据_查询_操作日期</div></td>
+    <td colspan='5' align='center'>pass</td>
+</tr>
+
+<tr id='pt17.5' class='hiddenRow'>
+    <td class='none'><div class='testcase'>test05_转库单据_查询_操作人</div></td>
+    <td colspan='5' align='center'>pass</td>
+</tr>
+
+<tr id='pt17.6' class='hiddenRow'>
+    <td class='none'><div class='testcase'>test06_转库单据_查询_转库类型</div></td>
+    <td colspan='5' align='center'>pass</td>
+</tr>
+
+<tr id='pt17.7' class='hiddenRow'>
+    <td class='none'><div class='testcase'>test07_转库单据_查询_组合查询</div></td>
+    <td colspan='5' align='center'>pass</td>
+</tr>
+
+<tr id='pt17.8' class='hiddenRow'>
+    <td class='none'><div class='testcase'>test08_转库单据_查询_打印</div></td>
+    <td colspan='5' align='center'>pass</td>
+</tr>
+
+<tr class='passClass'>
+    <td>DJJL.test送检出库单据.xdwcy_TestCase</td>
+    <td>4</td>
+    <td>4</td>
+    <td>0</td>
+    <td>0</td>
+    <td><a href="javascript:showClassDetail('c18',4)">Detail</a></td>
+</tr>
+
+<tr id='pt18.1' class='hiddenRow'>
+    <td class='none'><div class='testcase'>test01_送检出库单据_查询_送检单号</div></td>
+    <td colspan='5' align='center'>pass</td>
+</tr>
+
+<tr id='pt18.2' class='hiddenRow'>
+    <td class='none'><div class='testcase'>test02_送检出库单据_查询_物品编号</div></td>
+    <td colspan='5' align='center'>pass</td>
+</tr>
+
+<tr id='pt18.3' class='hiddenRow'>
+    <td class='none'><div class='testcase'>test03_送检出库单据_查询_送检日期</div></td>
+    <td colspan='5' align='center'>pass</td>
+</tr>
+
+<tr id='pt18.4' class='hiddenRow'>
+    <td class='none'><div class='testcase'>test04_送检出库单据_查询_组合查询</div></td>
+    <td colspan='5' align='center'>pass</td>
+</tr>
+
+<tr class='passClass'>
+    <td>DJJL.test销毁出库单据.xdwcy_TestCase</td>
+    <td>4</td>
+    <td>4</td>
+    <td>0</td>
+    <td>0</td>
+    <td><a href="javascript:showClassDetail('c19',4)">Detail</a></td>
+</tr>
+
+<tr id='pt19.1' class='hiddenRow'>
+    <td class='none'><div class='testcase'>test01_销毁出库单据_查询_销毁单号</div></td>
+    <td colspan='5' align='center'>pass</td>
+</tr>
+
+<tr id='pt19.2' class='hiddenRow'>
+    <td class='none'><div class='testcase'>test02_销毁出库单据_查询_物品编号</div></td>
+    <td colspan='5' align='center'>pass</td>
+</tr>
+
+<tr id='pt19.3' class='hiddenRow'>
+    <td class='none'><div class='testcase'>test03_销毁出库单据_查询_出库日期</div></td>
+    <td colspan='5' align='center'>pass</td>
+</tr>
+
+<tr id='pt19.4' class='hiddenRow'>
+    <td class='none'><div class='testcase'>test04_销毁出库单据_查询_组合查询</div></td>
+    <td colspan='5' align='center'>pass</td>
+</tr>
+
+<tr class='passClass'>
+    <td>DJJL.test隔离检疫记录.xdwcy_TestCase</td>
+    <td>6</td>
+    <td>6</td>
+    <td>0</td>
+    <td>0</td>
+    <td><a href="javascript:showClassDetail('c20',6)">Detail</a></td>
+</tr>
+
+<tr id='pt20.1' class='hiddenRow'>
+    <td class='none'><div class='testcase'>test01_隔离检疫记录_查询_物品编号</div></td>
+    <td colspan='5' align='center'>pass</td>
+</tr>
+
+<tr id='pt20.2' class='hiddenRow'>
+    <td class='none'><div class='testcase'>test02_隔离检疫记录_查询_证件号</div></td>
+    <td colspan='5' align='center'>pass</td>
+</tr>
+
+<tr id='pt20.3' class='hiddenRow'>
+    <td class='none'><div class='testcase'>test03_隔离检疫记录_查询_物品名称</div></td>
+    <td colspan='5' align='center'>pass</td>
+</tr>
+
+<tr id='pt20.4' class='hiddenRow'>
+    <td class='none'><div class='testcase'>test04_隔离检疫记录_查询_组合查询</div></td>
+    <td colspan='5' align='center'>pass</td>
+</tr>
+
+<tr id='pt20.5' class='hiddenRow'>
+    <td class='none'><div class='testcase'>test05_隔离检疫记录_查看</div></td>
+    <td colspan='5' align='center'>pass</td>
+</tr>
+
+<tr id='pt20.6' class='hiddenRow'>
+    <td class='none'><div class='testcase'>test06_隔离检疫记录_导出</div></td>
+    <td colspan='5' align='center'>pass</td>
+</tr>
+
+<tr class='failClass'>
+    <td>XTSZ.test常用物品.xdwcywp_TestCase</td>
+    <td>10</td>
+    <td>9</td>
+    <td>1</td>
+    <td>0</td>
+    <td><a href="javascript:showClassDetail('c21',10)">Detail</a></td>
+</tr>
+
+<tr id='pt21.1' class='hiddenRow'>
+    <td class='none'><div class='testcase'>test01_常用物品_新增</div></td>
+    <td colspan='5' align='center'>pass</td>
+</tr>
+
+<tr id='pt21.2' class='hiddenRow'>
+    <td class='none'><div class='testcase'>test02_常用物品_新增_已存在</div></td>
+    <td colspan='5' align='center'>pass</td>
+</tr>
+
+<tr id='pt21.3' class='hiddenRow'>
+    <td class='none'><div class='testcase'>test03_常用物品_查询_名称</div></td>
+    <td colspan='5' align='center'>pass</td>
+</tr>
+
+<tr id='pt21.4' class='hiddenRow'>
+    <td class='none'><div class='testcase'>test04_常用物品_查询_拼音</div></td>
+    <td colspan='5' align='center'>pass</td>
+</tr>
+
+<tr id='pt21.5' class='hiddenRow'>
+    <td class='none'><div class='testcase'>test05_常用物品_查询_首字母</div></td>
+    <td colspan='5' align='center'>pass</td>
+</tr>
+
+<tr id='pt21.6' class='hiddenRow'>
+    <td class='none'><div class='testcase'>test06_常用物品_查询_物品分类</div></td>
+    <td colspan='5' align='center'>pass</td>
+</tr>
+
+<tr id='pt21.7' class='hiddenRow'>
+    <td class='none'><div class='testcase'>test07_常用物品_查询_组合查询</div></td>
+    <td colspan='5' align='center'>pass</td>
+</tr>
+
+<tr id='pt21.8' class='hiddenRow'>
+    <td class='none'><div class='testcase'>test08_常用物品_编辑</div></td>
+    <td colspan='5' align='center'>pass</td>
+</tr>
+
+<tr id='pt21.9' class='hiddenRow'>
+    <td class='none'><div class='testcase'>test09_常用物品_删除</div></td>
+    <td colspan='5' align='center'>pass</td>
+</tr>
+
+<tr id='ft21.10' class='none'>
+    <td class='failCase'><div class='testcase'>test10_常用物品_批量删除</div></td>
+    <td colspan='5' align='center'>
+
+    <!--css div popup start-->
+    <a class="popup_link" onfocus='this.blur();' href="javascript:showTestDetail('div_ft21.10')" >
+        fail</a>
+
+    <div id='div_ft21.10' class="popup_window">
+        <div style='text-align: right; color:red;cursor:pointer'>
+        <a onfocus='this.blur();' onclick="document.getElementById('div_ft21.10').style.display = 'none' " >
+           [x]</a>
+        </div>
+        <pre>
+        
+ft21.10: Traceback (most recent call last):
+  File "E:\胡亮\项目工作安排\测试文件svn\web自动化\携带物2.0\Test_case\XTSZ\test常用物品.py", line 69, in test10_常用物品_批量删除
+    self.cywp_batchdelete()
+  File "E:\胡亮\项目工作安排\测试文件svn\web自动化\携带物2.0\Setting\xtsz.py", line 142, in cywp_batchdelete
+    self.cywp_add('测试物品2', 26, 27, '操作成功')
+  File "E:\胡亮\项目工作安排\测试文件svn\web自动化\携带物2.0\Setting\xtsz.py", line 74, in cywp_add
+    self.assertIn(msg, self.dr.find_element_by_xpath('//*[@id="gritter-notice-wrapper"]/div/div[2]/div[2]/p').text)
+AssertionError: '操作成功' not found in '已存在相同的物品名称！'
+Traceback (most recent call last):
+  File "E:\胡亮\项目工作安排\测试文件svn\web自动化\携带物2.0\Test_case\XTSZ\test常用物品.py", line 69, in test10_常用物品_批量删除
+    self.cywp_batchdelete()
+  File "E:\胡亮\项目工作安排\测试文件svn\web自动化\携带物2.0\Setting\xtsz.py", line 142, in cywp_batchdelete
+    self.cywp_add('测试物品2', 26, 27, '操作成功')
+  File "E:\胡亮\项目工作安排\测试文件svn\web自动化\携带物2.0\Setting\xtsz.py", line 74, in cywp_add
+    self.assertIn(msg, self.dr.find_element_by_xpath('//*[@id="gritter-notice-wrapper"]/div/div[2]/div[2]/p').text)
+AssertionError: '操作成功' not found in '已存在相同的物品名称！'
+
+
+        </pre>
+    </div>
+    <!--css div popup end-->
+
+    </td>
+</tr>
+
+<tr class='failClass'>
+    <td>XTSZ.test常用物品分类.xdwcywpfl_TestCase</td>
+    <td>5</td>
+    <td>4</td>
+    <td>1</td>
+    <td>0</td>
+    <td><a href="javascript:showClassDetail('c22',5)">Detail</a></td>
+</tr>
+
+<tr id='pt22.1' class='hiddenRow'>
+    <td class='none'><div class='testcase'>test01_常用物品分类_新增</div></td>
+    <td colspan='5' align='center'>pass</td>
+</tr>
+
+<tr id='pt22.2' class='hiddenRow'>
+    <td class='none'><div class='testcase'>test02_常用物品分类_新增_已存在</div></td>
+    <td colspan='5' align='center'>pass</td>
+</tr>
+
+<tr id='pt22.3' class='hiddenRow'>
+    <td class='none'><div class='testcase'>test03_常用物品分类_编辑</div></td>
+    <td colspan='5' align='center'>pass</td>
+</tr>
+
+<tr id='pt22.4' class='hiddenRow'>
+    <td class='none'><div class='testcase'>test04_常用物品分类_删除</div></td>
+    <td colspan='5' align='center'>pass</td>
+</tr>
+
+<tr id='ft22.5' class='none'>
+    <td class='failCase'><div class='testcase'>test05_常用物品分类_批量删除</div></td>
+    <td colspan='5' align='center'>
+
+    <!--css div popup start-->
+    <a class="popup_link" onfocus='this.blur();' href="javascript:showTestDetail('div_ft22.5')" >
+        fail</a>
+
+    <div id='div_ft22.5' class="popup_window">
+        <div style='text-align: right; color:red;cursor:pointer'>
+        <a onfocus='this.blur();' onclick="document.getElementById('div_ft22.5').style.display = 'none' " >
+           [x]</a>
+        </div>
+        <pre>
+        
+ft22.5: Traceback (most recent call last):
+  File "E:\胡亮\项目工作安排\测试文件svn\web自动化\携带物2.0\Test_case\XTSZ\test常用物品分类.py", line 51, in test05_常用物品分类_批量删除
+    self.cywpfl_add(content_add1, '操作成功')
+  File "E:\胡亮\项目工作安排\测试文件svn\web自动化\携带物2.0\Setting\xtsz.py", line 448, in cywpfl_add
+    self.assertIn(msg, self.dr.find_element_by_xpath('//*[@id="gritter-notice-wrapper"]/div/div[2]/div[2]/p').text)
+AssertionError: '操作成功' not found in '已存在相同的分类代码！'
+Traceback (most recent call last):
+  File "E:\胡亮\项目工作安排\测试文件svn\web自动化\携带物2.0\Test_case\XTSZ\test常用物品分类.py", line 51, in test05_常用物品分类_批量删除
+    self.cywpfl_add(content_add1, '操作成功')
+  File "E:\胡亮\项目工作安排\测试文件svn\web自动化\携带物2.0\Setting\xtsz.py", line 448, in cywpfl_add
+    self.assertIn(msg, self.dr.find_element_by_xpath('//*[@id="gritter-notice-wrapper"]/div/div[2]/div[2]/p').text)
+AssertionError: '操作成功' not found in '已存在相同的分类代码！'
+
+
+        </pre>
+    </div>
+    <!--css div popup end-->
+
+    </td>
+</tr>
+
+<tr class='failClass'>
+    <td>XTSZ.test物品别名.xdwwpbm_TestCase</td>
+    <td>11</td>
+    <td>9</td>
+    <td>2</td>
+    <td>0</td>
+    <td><a href="javascript:showClassDetail('c23',11)">Detail</a></td>
+</tr>
+
+<tr id='pt23.1' class='hiddenRow'>
+    <td class='none'><div class='testcase'>test01_物品别名_新增</div></td>
+    <td colspan='5' align='center'>pass</td>
+</tr>
+
+<tr id='pt23.2' class='hiddenRow'>
+    <td class='none'><div class='testcase'>test02_物品别名_新增_别名重复</div></td>
+    <td colspan='5' align='center'>pass</td>
+</tr>
+
+<tr id='pt23.3' class='hiddenRow'>
+    <td class='none'><div class='testcase'>test03_物品别名_查询_物品学名</div></td>
+    <td colspan='5' align='center'>pass</td>
+</tr>
+
+<tr id='pt23.4' class='hiddenRow'>
+    <td class='none'><div class='testcase'>test04_物品别名_查询_别名</div></td>
+    <td colspan='5' align='center'>pass</td>
+</tr>
+
+<tr id='pt23.5' class='hiddenRow'>
+    <td class='none'><div class='testcase'>test05_物品别名_查询_状态</div></td>
+    <td colspan='5' align='center'>pass</td>
+</tr>
+
+<tr id='pt23.6' class='hiddenRow'>
+    <td class='none'><div class='testcase'>test06_物品别名_查询_是否已存在常用物品中</div></td>
+    <td colspan='5' align='center'>pass</td>
+</tr>
+
+<tr id='pt23.7' class='hiddenRow'>
+    <td class='none'><div class='testcase'>test07_物品别名_查询_组合查询</div></td>
+    <td colspan='5' align='center'>pass</td>
+</tr>
+
+<tr id='pt23.8' class='hiddenRow'>
+    <td class='none'><div class='testcase'>test08_物品别名_编辑</div></td>
+    <td colspan='5' align='center'>pass</td>
+</tr>
+
+<tr id='pt23.9' class='hiddenRow'>
+    <td class='none'><div class='testcase'>test09_物品别名_删除</div></td>
+    <td colspan='5' align='center'>pass</td>
+</tr>
+
+<tr id='ft23.10' class='none'>
+    <td class='failCase'><div class='testcase'>test10_物品别名_批量删除</div></td>
+    <td colspan='5' align='center'>
+
+    <!--css div popup start-->
+    <a class="popup_link" onfocus='this.blur();' href="javascript:showTestDetail('div_ft23.10')" >
+        fail</a>
+
+    <div id='div_ft23.10' class="popup_window">
+        <div style='text-align: right; color:red;cursor:pointer'>
+        <a onfocus='this.blur();' onclick="document.getElementById('div_ft23.10').style.display = 'none' " >
+           [x]</a>
+        </div>
+        <pre>
+        
+ft23.10: Traceback (most recent call last):
+  File "E:\胡亮\项目工作安排\测试文件svn\web自动化\携带物2.0\Test_case\XTSZ\test物品别名.py", line 82, in test10_物品别名_批量删除
+    self.wpbm_batchdelete()
+  File "E:\胡亮\项目工作安排\测试文件svn\web自动化\携带物2.0\Setting\xtsz.py", line 338, in wpbm_batchdelete
+    self.wpbm_add('樱桃A', '车厘子A', '操作成功')
+  File "E:\胡亮\项目工作安排\测试文件svn\web自动化\携带物2.0\Setting\xtsz.py", line 282, in wpbm_add
+    self.dr.find_element_by_xpath('//*[@id="gritter-notice-wrapper"]/div/div[2]/div[2]/p').text)
+AssertionError: '操作成功' not found in '物品别名重复！'
+Traceback (most recent call last):
+  File "E:\胡亮\项目工作安排\测试文件svn\web自动化\携带物2.0\Test_case\XTSZ\test物品别名.py", line 82, in test10_物品别名_批量删除
+    self.wpbm_batchdelete()
+  File "E:\胡亮\项目工作安排\测试文件svn\web自动化\携带物2.0\Setting\xtsz.py", line 338, in wpbm_batchdelete
+    self.wpbm_add('樱桃A', '车厘子A', '操作成功')
+  File "E:\胡亮\项目工作安排\测试文件svn\web自动化\携带物2.0\Setting\xtsz.py", line 282, in wpbm_add
+    self.dr.find_element_by_xpath('//*[@id="gritter-notice-wrapper"]/div/div[2]/div[2]/p').text)
+AssertionError: '操作成功' not found in '物品别名重复！'
+
+
+        </pre>
+    </div>
+    <!--css div popup end-->
+
+    </td>
+</tr>
+
+<tr id='ft23.11' class='none'>
+    <td class='failCase'><div class='testcase'>test11_物品别名_合并</div></td>
+    <td colspan='5' align='center'>
+
+    <!--css div popup start-->
+    <a class="popup_link" onfocus='this.blur();' href="javascript:showTestDetail('div_ft23.11')" >
+        fail</a>
+
+    <div id='div_ft23.11' class="popup_window">
+        <div style='text-align: right; color:red;cursor:pointer'>
+        <a onfocus='this.blur();' onclick="document.getElementById('div_ft23.11').style.display = 'none' " >
+           [x]</a>
+        </div>
+        <pre>
+        
+ft23.11: Traceback (most recent call last):
+  File "E:\胡亮\项目工作安排\测试文件svn\web自动化\携带物2.0\Test_case\XTSZ\test物品别名.py", line 87, in test11_物品别名_合并
+    self.wpbm_merge()
+  File "E:\胡亮\项目工作安排\测试文件svn\web自动化\携带物2.0\Setting\xtsz.py", line 361, in wpbm_merge
+    self.wpbm_add('圣女果A', '小番茄A', '操作成功')
+  File "E:\胡亮\项目工作安排\测试文件svn\web自动化\携带物2.0\Setting\xtsz.py", line 282, in wpbm_add
+    self.dr.find_element_by_xpath('//*[@id="gritter-notice-wrapper"]/div/div[2]/div[2]/p').text)
+AssertionError: '操作成功' not found in '物品别名重复！'
+Traceback (most recent call last):
+  File "E:\胡亮\项目工作安排\测试文件svn\web自动化\携带物2.0\Test_case\XTSZ\test物品别名.py", line 87, in test11_物品别名_合并
+    self.wpbm_merge()
+  File "E:\胡亮\项目工作安排\测试文件svn\web自动化\携带物2.0\Setting\xtsz.py", line 361, in wpbm_merge
+    self.wpbm_add('圣女果A', '小番茄A', '操作成功')
+  File "E:\胡亮\项目工作安排\测试文件svn\web自动化\携带物2.0\Setting\xtsz.py", line 282, in wpbm_add
+    self.dr.find_element_by_xpath('//*[@id="gritter-notice-wrapper"]/div/div[2]/div[2]/p').text)
+AssertionError: '操作成功' not found in '物品别名重复！'
+
+
+        </pre>
+    </div>
+    <!--css div popup end-->
+
+    </td>
+</tr>
+
+<tr class='passClass'>
+    <td>XTSZ.test疫情国家.xdwyqgj_TestCase</td>
+    <td>8</td>
+    <td>8</td>
+    <td>0</td>
+    <td>0</td>
+    <td><a href="javascript:showClassDetail('c24',8)">Detail</a></td>
+</tr>
+
+<tr id='pt24.1' class='hiddenRow'>
+    <td class='none'><div class='testcase'>test01_疫情国家_新增</div></td>
+    <td colspan='5' align='center'>pass</td>
+</tr>
+
+<tr id='pt24.2' class='hiddenRow'>
+    <td class='none'><div class='testcase'>test02_疫情国家_新增_疫情名称已存在</div></td>
+    <td colspan='5' align='center'>pass</td>
+</tr>
+
+<tr id='pt24.3' class='hiddenRow'>
+    <td class='none'><div class='testcase'>test03_疫情国家_查询_疫情名称</div></td>
+    <td colspan='5' align='center'>pass</td>
+</tr>
+
+<tr id='pt24.4' class='hiddenRow'>
+    <td class='none'><div class='testcase'>test04_疫情国家_查询_疫情国家</div></td>
+    <td colspan='5' align='center'>pass</td>
+</tr>
+
+<tr id='pt24.5' class='hiddenRow'>
+    <td class='none'><div class='testcase'>test05_疫情国家_查询_组合查询</div></td>
+    <td colspan='5' align='center'>pass</td>
+</tr>
+
+<tr id='pt24.6' class='hiddenRow'>
+    <td class='none'><div class='testcase'>test06_疫情国家_编辑</div></td>
+    <td colspan='5' align='center'>pass</td>
+</tr>
+
+<tr id='pt24.7' class='hiddenRow'>
+    <td class='none'><div class='testcase'>test07_疫情国家_删除</div></td>
+    <td colspan='5' align='center'>pass</td>
+</tr>
+
+<tr id='pt24.8' class='hiddenRow'>
+    <td class='none'><div class='testcase'>test08_疫情国家_批量删除</div></td>
+    <td colspan='5' align='center'>pass</td>
+</tr>
+
+<tr class='passClass'>
+    <td>YWLC.test_截留_实验室检疫_截留物处理_不合格移交保护部门.xdwcy_TestCase</td>
+    <td>11</td>
+    <td>11</td>
+    <td>0</td>
+    <td>0</td>
+    <td><a href="javascript:showClassDetail('c25',11)">Detail</a></td>
+</tr>
+
+<tr id='pt25.1' class='hiddenRow'>
+    <td class='none'><div class='testcase'>test01_实验室检疫_录单</div></td>
+    <td colspan='5' align='center'>pass</td>
+</tr>
+
+<tr id='pt25.2' class='hiddenRow'>
+    <td class='none'><div class='testcase'>test02_实验室检疫_截留物处理查询</div></td>
+    <td colspan='5' align='center'>pass</td>
+</tr>
+
+<tr id='pt25.3' class='hiddenRow'>
+    <td class='none'><div class='testcase'>test03_实验室检疫_入库</div></td>
+    <td colspan='5' align='center'>pass</td>
+</tr>
+
+<tr id='pt25.4' class='hiddenRow'>
+    <td class='none'><div class='testcase'>test04_实验室检疫_截留物处理查询</div></td>
+    <td colspan='5' align='center'>pass</td>
+</tr>
+
+<tr id='pt25.5' class='hiddenRow'>
+    <td class='none'><div class='testcase'>test05_实验室检疫_出库</div></td>
+    <td colspan='5' align='center'>pass</td>
+</tr>
+
+<tr id='pt25.6' class='hiddenRow'>
+    <td class='none'><div class='testcase'>test06_送检出库单据查询</div></td>
+    <td colspan='5' align='center'>pass</td>
+</tr>
+
+<tr id='pt25.7' class='hiddenRow'>
+    <td class='none'><div class='testcase'>test07_实验室检疫_送样结果录入</div></td>
+    <td colspan='5' align='center'>pass</td>
+</tr>
+
+<tr id='pt25.8' class='hiddenRow'>
+    <td class='none'><div class='testcase'>test08_截留物处理_不合格移交保护部门</div></td>
+    <td colspan='5' align='center'>pass</td>
+</tr>
+
+<tr id='pt25.9' class='hiddenRow'>
+    <td class='none'><div class='testcase'>test09_实验室检疫_不合格移交保护部门出库</div></td>
+    <td colspan='5' align='center'>pass</td>
+</tr>
+
+<tr id='pt25.10' class='hiddenRow'>
+    <td class='none'><div class='testcase'>test10_实验室检疫_不合格移交保护部门_出库记录查询</div></td>
+    <td colspan='5' align='center'>pass</td>
+</tr>
+
+<tr id='pt25.11' class='hiddenRow'>
+    <td class='none'><div class='testcase'>test11_实验室检疫_移交保护部门出库单据查询</div></td>
+    <td colspan='5' align='center'>pass</td>
+</tr>
+
+<tr class='passClass'>
+    <td>YWLC.test_截留_实验室检疫_截留物处理_不合格退回.xdwcy_TestCase</td>
+    <td>10</td>
+    <td>10</td>
+    <td>0</td>
+    <td>0</td>
+    <td><a href="javascript:showClassDetail('c26',10)">Detail</a></td>
+</tr>
+
+<tr id='pt26.1' class='hiddenRow'>
+    <td class='none'><div class='testcase'>test01_实验室检疫_录单</div></td>
+    <td colspan='5' align='center'>pass</td>
+</tr>
+
+<tr id='pt26.2' class='hiddenRow'>
+    <td class='none'><div class='testcase'>test02_实验室检疫_截留物处理查询</div></td>
+    <td colspan='5' align='center'>pass</td>
+</tr>
+
+<tr id='pt26.3' class='hiddenRow'>
+    <td class='none'><div class='testcase'>test03_实验室检疫_入库</div></td>
+    <td colspan='5' align='center'>pass</td>
+</tr>
+
+<tr id='pt26.4' class='hiddenRow'>
+    <td class='none'><div class='testcase'>test04_实验室检疫_截留物处理查询</div></td>
+    <td colspan='5' align='center'>pass</td>
+</tr>
+
+<tr id='pt26.5' class='hiddenRow'>
+    <td class='none'><div class='testcase'>test05_实验室检疫_出库</div></td>
+    <td colspan='5' align='center'>pass</td>
+</tr>
+
+<tr id='pt26.6' class='hiddenRow'>
+    <td class='none'><div class='testcase'>test06_送检出库单据查询</div></td>
+    <td colspan='5' align='center'>pass</td>
+</tr>
+
+<tr id='pt26.7' class='hiddenRow'>
+    <td class='none'><div class='testcase'>test07_实验室检疫_送样结果录入</div></td>
+    <td colspan='5' align='center'>pass</td>
+</tr>
+
+<tr id='pt26.8' class='hiddenRow'>
+    <td class='none'><div class='testcase'>test08_截留物处理_不合格退回</div></td>
+    <td colspan='5' align='center'>pass</td>
+</tr>
+
+<tr id='pt26.9' class='hiddenRow'>
+    <td class='none'><div class='testcase'>test09_实验室检疫_不合格退回出库</div></td>
+    <td colspan='5' align='center'>pass</td>
+</tr>
+
+<tr id='pt26.10' class='hiddenRow'>
+    <td class='none'><div class='testcase'>test10_实验室检疫_不合格退回_出库记录查询</div></td>
+    <td colspan='5' align='center'>pass</td>
+</tr>
+
+<tr class='passClass'>
+    <td>YWLC.test_截留_实验室检疫_截留物处理_不合格销毁.xdwcy_TestCase</td>
+    <td>11</td>
+    <td>11</td>
+    <td>0</td>
+    <td>0</td>
+    <td><a href="javascript:showClassDetail('c27',11)">Detail</a></td>
+</tr>
+
+<tr id='pt27.1' class='hiddenRow'>
+    <td class='none'><div class='testcase'>test01_实验室检疫_录单</div></td>
+    <td colspan='5' align='center'>pass</td>
+</tr>
+
+<tr id='pt27.2' class='hiddenRow'>
+    <td class='none'><div class='testcase'>test02_实验室检疫_截留物处理查询</div></td>
+    <td colspan='5' align='center'>pass</td>
+</tr>
+
+<tr id='pt27.3' class='hiddenRow'>
+    <td class='none'><div class='testcase'>test03_实验室检疫_入库</div></td>
+    <td colspan='5' align='center'>pass</td>
+</tr>
+
+<tr id='pt27.4' class='hiddenRow'>
+    <td class='none'><div class='testcase'>test04_实验室检疫_截留物处理查询</div></td>
+    <td colspan='5' align='center'>pass</td>
+</tr>
+
+<tr id='pt27.5' class='hiddenRow'>
+    <td class='none'><div class='testcase'>test05_实验室检疫_出库</div></td>
+    <td colspan='5' align='center'>pass</td>
+</tr>
+
+<tr id='pt27.6' class='hiddenRow'>
+    <td class='none'><div class='testcase'>test06_送检出库单据查询</div></td>
+    <td colspan='5' align='center'>pass</td>
+</tr>
+
+<tr id='pt27.7' class='hiddenRow'>
+    <td class='none'><div class='testcase'>test07_实验室检疫_送样结果录入</div></td>
+    <td colspan='5' align='center'>pass</td>
+</tr>
+
+<tr id='pt27.8' class='hiddenRow'>
+    <td class='none'><div class='testcase'>test08_截留物处理_不合格销毁</div></td>
+    <td colspan='5' align='center'>pass</td>
+</tr>
+
+<tr id='pt27.9' class='hiddenRow'>
+    <td class='none'><div class='testcase'>test09_实验室检疫_不合格销毁出库</div></td>
+    <td colspan='5' align='center'>pass</td>
+</tr>
+
+<tr id='pt27.10' class='hiddenRow'>
+    <td class='none'><div class='testcase'>test10_实验室检疫_不合格销毁_销毁单据查询</div></td>
+    <td colspan='5' align='center'>pass</td>
+</tr>
+
+<tr id='pt27.11' class='hiddenRow'>
+    <td class='none'><div class='testcase'>test11_实验室检疫_不合格销毁_出库记录查询</div></td>
+    <td colspan='5' align='center'>pass</td>
+</tr>
+
+<tr class='passClass'>
+    <td>YWLC.test_截留_实验室检疫_截留物处理_合格放行.xdwcy_TestCase</td>
+    <td>10</td>
+    <td>10</td>
+    <td>0</td>
+    <td>0</td>
+    <td><a href="javascript:showClassDetail('c28',10)">Detail</a></td>
+</tr>
+
+<tr id='pt28.1' class='hiddenRow'>
+    <td class='none'><div class='testcase'>test01_实验室检疫_录单</div></td>
+    <td colspan='5' align='center'>pass</td>
+</tr>
+
+<tr id='pt28.2' class='hiddenRow'>
+    <td class='none'><div class='testcase'>test02_实验室检疫_截留物处理查询</div></td>
+    <td colspan='5' align='center'>pass</td>
+</tr>
+
+<tr id='pt28.3' class='hiddenRow'>
+    <td class='none'><div class='testcase'>test03_实验室检疫_入库</div></td>
+    <td colspan='5' align='center'>pass</td>
+</tr>
+
+<tr id='pt28.4' class='hiddenRow'>
+    <td class='none'><div class='testcase'>test04_实验室检疫_截留物处理查询</div></td>
+    <td colspan='5' align='center'>pass</td>
+</tr>
+
+<tr id='pt28.5' class='hiddenRow'>
+    <td class='none'><div class='testcase'>test05_实验室检疫_出库</div></td>
+    <td colspan='5' align='center'>pass</td>
+</tr>
+
+<tr id='pt28.6' class='hiddenRow'>
+    <td class='none'><div class='testcase'>test06_送检出库单据查询</div></td>
+    <td colspan='5' align='center'>pass</td>
+</tr>
+
+<tr id='pt28.7' class='hiddenRow'>
+    <td class='none'><div class='testcase'>test07_实验室检疫_送样结果录入</div></td>
+    <td colspan='5' align='center'>pass</td>
+</tr>
+
+<tr id='pt28.8' class='hiddenRow'>
+    <td class='none'><div class='testcase'>test08_截留物处理_合格放行</div></td>
+    <td colspan='5' align='center'>pass</td>
+</tr>
+
+<tr id='pt28.9' class='hiddenRow'>
+    <td class='none'><div class='testcase'>test09_实验室检疫_合格放行出库</div></td>
+    <td colspan='5' align='center'>pass</td>
+</tr>
+
+<tr id='pt28.10' class='hiddenRow'>
+    <td class='none'><div class='testcase'>test10_出库记录查询</div></td>
+    <td colspan='5' align='center'>pass</td>
+</tr>
+
+<tr class='passClass'>
+    <td>YWLC.test_截留_实验室检疫_截留物处理_移交法制部门.xdwcy_TestCase</td>
+    <td>9</td>
+    <td>9</td>
+    <td>0</td>
+    <td>0</td>
+    <td><a href="javascript:showClassDetail('c29',9)">Detail</a></td>
+</tr>
+
+<tr id='pt29.1' class='hiddenRow'>
+    <td class='none'><div class='testcase'>test01_实验室检疫_录单</div></td>
+    <td colspan='5' align='center'>pass</td>
+</tr>
+
+<tr id='pt29.2' class='hiddenRow'>
+    <td class='none'><div class='testcase'>test02_实验室检疫_截留物处理查询</div></td>
+    <td colspan='5' align='center'>pass</td>
+</tr>
+
+<tr id='pt29.3' class='hiddenRow'>
+    <td class='none'><div class='testcase'>test03_实验室检疫_入库</div></td>
+    <td colspan='5' align='center'>pass</td>
+</tr>
+
+<tr id='pt29.4' class='hiddenRow'>
+    <td class='none'><div class='testcase'>test04_实验室检疫_截留物处理查询</div></td>
+    <td colspan='5' align='center'>pass</td>
+</tr>
+
+<tr id='pt29.5' class='hiddenRow'>
+    <td class='none'><div class='testcase'>test05_实验室检疫_出库</div></td>
+    <td colspan='5' align='center'>pass</td>
+</tr>
+
+<tr id='pt29.6' class='hiddenRow'>
+    <td class='none'><div class='testcase'>test06_送检出库单据查询</div></td>
+    <td colspan='5' align='center'>pass</td>
+</tr>
+
+<tr id='pt29.7' class='hiddenRow'>
+    <td class='none'><div class='testcase'>test07_实验室检疫_送样结果录入</div></td>
+    <td colspan='5' align='center'>pass</td>
+</tr>
+
+<tr id='pt29.8' class='hiddenRow'>
+    <td class='none'><div class='testcase'>test08_截留物处理_移交法制部门</div></td>
+    <td colspan='5' align='center'>pass</td>
+</tr>
+
+<tr id='pt29.9' class='hiddenRow'>
+    <td class='none'><div class='testcase'>test09_移交法制部门查询</div></td>
+    <td colspan='5' align='center'>pass</td>
+</tr>
+
+<tr class='passClass'>
+    <td>YWLC.test截留_移交法制部门_入库_结果录入_保护部门.xdwcy_TestCase</td>
+    <td>6</td>
+    <td>6</td>
+    <td>0</td>
+    <td>0</td>
+    <td><a href="javascript:showClassDetail('c30',6)">Detail</a></td>
+</tr>
+
+<tr id='pt30.1' class='hiddenRow'>
+    <td class='none'><div class='testcase'>test01_实验室检疫_录单</div></td>
+    <td colspan='5' align='center'>pass</td>
+</tr>
+
+<tr id='pt30.2' class='hiddenRow'>
+    <td class='none'><div class='testcase'>test02_移交法制部门_查询</div></td>
+    <td colspan='5' align='center'>pass</td>
+</tr>
+
+<tr id='pt30.3' class='hiddenRow'>
+    <td class='none'><div class='testcase'>test03_移交法制部门_入库</div></td>
+    <td colspan='5' align='center'>pass</td>
+</tr>
+
+<tr id='pt30.4' class='hiddenRow'>
+    <td class='none'><div class='testcase'>test04_移交法制部门_处理_移交保护部门</div></td>
+    <td colspan='5' align='center'>pass</td>
+</tr>
+
+<tr id='pt30.5' class='hiddenRow'>
+    <td class='none'><div class='testcase'>test05_移交法制部门_移交保护部门出库</div></td>
+    <td colspan='5' align='center'>pass</td>
+</tr>
+
+<tr id='pt30.6' class='hiddenRow'>
+    <td class='none'><div class='testcase'>test06_移交保护部门出库单据查询</div></td>
+    <td colspan='5' align='center'>pass</td>
+</tr>
+
+<tr class='passClass'>
+    <td>YWLC.test截留_移交法制部门_入库_结果录入_退回.xdwcy_TestCase</td>
+    <td>6</td>
+    <td>6</td>
+    <td>0</td>
+    <td>0</td>
+    <td><a href="javascript:showClassDetail('c31',6)">Detail</a></td>
+</tr>
+
+<tr id='pt31.1' class='hiddenRow'>
+    <td class='none'><div class='testcase'>test01_实验室检疫_录单</div></td>
+    <td colspan='5' align='center'>pass</td>
+</tr>
+
+<tr id='pt31.2' class='hiddenRow'>
+    <td class='none'><div class='testcase'>test02_移交法制部门_查询</div></td>
+    <td colspan='5' align='center'>pass</td>
+</tr>
+
+<tr id='pt31.3' class='hiddenRow'>
+    <td class='none'><div class='testcase'>test03_移交法制部门_入库</div></td>
+    <td colspan='5' align='center'>pass</td>
+</tr>
+
+<tr id='pt31.4' class='hiddenRow'>
+    <td class='none'><div class='testcase'>test04_移交法制部门_处理_退回</div></td>
+    <td colspan='5' align='center'>pass</td>
+</tr>
+
+<tr id='pt31.5' class='hiddenRow'>
+    <td class='none'><div class='testcase'>test05_移交法制部门_退回出库</div></td>
+    <td colspan='5' align='center'>pass</td>
+</tr>
+
+<tr id='pt31.6' class='hiddenRow'>
+    <td class='none'><div class='testcase'>test06_移交法制部门_出库记录</div></td>
+    <td colspan='5' align='center'>pass</td>
+</tr>
+
+<tr class='passClass'>
+    <td>YWLC.test截留_移交法制部门_入库_结果录入_销毁.xdwcy_TestCase</td>
+    <td>6</td>
+    <td>6</td>
+    <td>0</td>
+    <td>0</td>
+    <td><a href="javascript:showClassDetail('c32',6)">Detail</a></td>
+</tr>
+
+<tr id='pt32.1' class='hiddenRow'>
+    <td class='none'><div class='testcase'>test01_实验室检疫_录单</div></td>
+    <td colspan='5' align='center'>pass</td>
+</tr>
+
+<tr id='pt32.2' class='hiddenRow'>
+    <td class='none'><div class='testcase'>test02_移交法制部门_查询</div></td>
+    <td colspan='5' align='center'>pass</td>
+</tr>
+
+<tr id='pt32.3' class='hiddenRow'>
+    <td class='none'><div class='testcase'>test03_移交法制部门_入库</div></td>
+    <td colspan='5' align='center'>pass</td>
+</tr>
+
+<tr id='pt32.4' class='hiddenRow'>
+    <td class='none'><div class='testcase'>test04_移交法制部门_处理_销毁</div></td>
+    <td colspan='5' align='center'>pass</td>
+</tr>
+
+<tr id='pt32.5' class='hiddenRow'>
+    <td class='none'><div class='testcase'>test05_移交法制部门_销毁出库</div></td>
+    <td colspan='5' align='center'>pass</td>
+</tr>
+
+<tr id='pt32.6' class='hiddenRow'>
+    <td class='none'><div class='testcase'>test06_销毁单据查询</div></td>
+    <td colspan='5' align='center'>pass</td>
+</tr>
+
+<tr class='passClass'>
+    <td>YWLC.test截留_移交法制部门_转库_结果录入_保护部门.xdwcy_TestCase</td>
+    <td>7</td>
+    <td>7</td>
+    <td>0</td>
+    <td>0</td>
+    <td><a href="javascript:showClassDetail('c33',7)">Detail</a></td>
+</tr>
+
+<tr id='pt33.1' class='hiddenRow'>
+    <td class='none'><div class='testcase'>test01_实验室检疫_录单</div></td>
+    <td colspan='5' align='center'>pass</td>
+</tr>
+
+<tr id='pt33.2' class='hiddenRow'>
+    <td class='none'><div class='testcase'>test02_移交法制部门_查询</div></td>
+    <td colspan='5' align='center'>pass</td>
+</tr>
+
+<tr id='pt33.3' class='hiddenRow'>
+    <td class='none'><div class='testcase'>test03_移交法制部门_转库</div></td>
+    <td colspan='5' align='center'>pass</td>
+</tr>
+
+<tr id='pt33.4' class='hiddenRow'>
+    <td class='none'><div class='testcase'>test04_移交法制部门_转库确认接收</div></td>
+    <td colspan='5' align='center'>pass</td>
+</tr>
+
+<tr id='pt33.5' class='hiddenRow'>
+    <td class='none'><div class='testcase'>test05_移交法制部门_处理_移交保护部门</div></td>
+    <td colspan='5' align='center'>pass</td>
+</tr>
+
+<tr id='pt33.6' class='hiddenRow'>
+    <td class='none'><div class='testcase'>test06_移交法制部门_移交保护部门出库</div></td>
+    <td colspan='5' align='center'>pass</td>
+</tr>
+
+<tr id='pt33.7' class='hiddenRow'>
+    <td class='none'><div class='testcase'>test07_移交保护部门出库单据查询</div></td>
+    <td colspan='5' align='center'>pass</td>
+</tr>
+
+<tr class='passClass'>
+    <td>YWLC.test截留_移交法制部门_转库_结果录入_退回.xdwcy_TestCase</td>
+    <td>7</td>
+    <td>7</td>
+    <td>0</td>
+    <td>0</td>
+    <td><a href="javascript:showClassDetail('c34',7)">Detail</a></td>
+</tr>
+
+<tr id='pt34.1' class='hiddenRow'>
+    <td class='none'><div class='testcase'>test01_实验室检疫_录单</div></td>
+    <td colspan='5' align='center'>pass</td>
+</tr>
+
+<tr id='pt34.2' class='hiddenRow'>
+    <td class='none'><div class='testcase'>test02_移交法制部门_查询</div></td>
+    <td colspan='5' align='center'>pass</td>
+</tr>
+
+<tr id='pt34.3' class='hiddenRow'>
+    <td class='none'><div class='testcase'>test03_移交法制部门_转库</div></td>
+    <td colspan='5' align='center'>pass</td>
+</tr>
+
+<tr id='pt34.4' class='hiddenRow'>
+    <td class='none'><div class='testcase'>test04_移交法制部门_转库确认接收</div></td>
+    <td colspan='5' align='center'>pass</td>
+</tr>
+
+<tr id='pt34.5' class='hiddenRow'>
+    <td class='none'><div class='testcase'>test05_移交法制部门_处理_退回</div></td>
+    <td colspan='5' align='center'>pass</td>
+</tr>
+
+<tr id='pt34.6' class='hiddenRow'>
+    <td class='none'><div class='testcase'>test06_移交法制部门_退回出库</div></td>
+    <td colspan='5' align='center'>pass</td>
+</tr>
+
+<tr id='pt34.7' class='hiddenRow'>
+    <td class='none'><div class='testcase'>test07_移交法制部门_出库记录</div></td>
+    <td colspan='5' align='center'>pass</td>
+</tr>
+
+<tr class='passClass'>
+    <td>YWLC.test截留_移交法制部门_转库_结果录入_销毁.xdwcy_TestCase</td>
+    <td>7</td>
+    <td>7</td>
+    <td>0</td>
+    <td>0</td>
+    <td><a href="javascript:showClassDetail('c35',7)">Detail</a></td>
+</tr>
+
+<tr id='pt35.1' class='hiddenRow'>
+    <td class='none'><div class='testcase'>test01_实验室检疫_录单</div></td>
+    <td colspan='5' align='center'>pass</td>
+</tr>
+
+<tr id='pt35.2' class='hiddenRow'>
+    <td class='none'><div class='testcase'>test02_移交法制部门_查询</div></td>
+    <td colspan='5' align='center'>pass</td>
+</tr>
+
+<tr id='pt35.3' class='hiddenRow'>
+    <td class='none'><div class='testcase'>test03_移交法制部门_转库</div></td>
+    <td colspan='5' align='center'>pass</td>
+</tr>
+
+<tr id='pt35.4' class='hiddenRow'>
+    <td class='none'><div class='testcase'>test04_移交法制部门_转库确认接收</div></td>
+    <td colspan='5' align='center'>pass</td>
+</tr>
+
+<tr id='pt35.5' class='hiddenRow'>
+    <td class='none'><div class='testcase'>test05_移交法制部门_处理_销毁</div></td>
+    <td colspan='5' align='center'>pass</td>
+</tr>
+
+<tr id='pt35.6' class='hiddenRow'>
+    <td class='none'><div class='testcase'>test06_移交法制部门_销毁出库</div></td>
+    <td colspan='5' align='center'>pass</td>
+</tr>
+
+<tr id='pt35.7' class='hiddenRow'>
+    <td class='none'><div class='testcase'>test07_销毁单据查询</div></td>
+    <td colspan='5' align='center'>pass</td>
+</tr>
+
+<tr class='passClass'>
+    <td>YWLC.test截留_补办手续_入库_截留处理_不合格移交保护部门.xdwcy_TestCase</td>
+    <td>7</td>
+    <td>7</td>
+    <td>0</td>
+    <td>0</td>
+    <td><a href="javascript:showClassDetail('c36',7)">Detail</a></td>
+</tr>
+
+<tr id='pt36.1' class='hiddenRow'>
+    <td class='none'><div class='testcase'>test01_实验室检疫_录单</div></td>
+    <td colspan='5' align='center'>pass</td>
+</tr>
+
+<tr id='pt36.2' class='hiddenRow'>
+    <td class='none'><div class='testcase'>test02_补办手续_截留物处理查询</div></td>
+    <td colspan='5' align='center'>pass</td>
+</tr>
+
+<tr id='pt36.3' class='hiddenRow'>
+    <td class='none'><div class='testcase'>test03_补办手续_入库</div></td>
+    <td colspan='5' align='center'>pass</td>
+</tr>
+
+<tr id='pt36.4' class='hiddenRow'>
+    <td class='none'><div class='testcase'>test04_补办手续_截留物处理_不合格移交保护部门</div></td>
+    <td colspan='5' align='center'>pass</td>
+</tr>
+
+<tr id='pt36.5' class='hiddenRow'>
+    <td class='none'><div class='testcase'>test05_补办手续_不合格移交保护部门出库</div></td>
+    <td colspan='5' align='center'>pass</td>
+</tr>
+
+<tr id='pt36.6' class='hiddenRow'>
+    <td class='none'><div class='testcase'>test06_补办手续_不合格移交保护部门_出库记录查询</div></td>
+    <td colspan='5' align='center'>pass</td>
+</tr>
+
+<tr id='pt36.7' class='hiddenRow'>
+    <td class='none'><div class='testcase'>test07_补办手续_移交保护部门出库单据查询</div></td>
+    <td colspan='5' align='center'>pass</td>
+</tr>
+
+<tr class='passClass'>
+    <td>YWLC.test截留_补办手续_入库_截留处理_不合格退回.xdwcy_TestCase</td>
+    <td>6</td>
+    <td>6</td>
+    <td>0</td>
+    <td>0</td>
+    <td><a href="javascript:showClassDetail('c37',6)">Detail</a></td>
+</tr>
+
+<tr id='pt37.1' class='hiddenRow'>
+    <td class='none'><div class='testcase'>test01_实验室检疫_录单</div></td>
+    <td colspan='5' align='center'>pass</td>
+</tr>
+
+<tr id='pt37.2' class='hiddenRow'>
+    <td class='none'><div class='testcase'>test02_补办手续_截留物处理查询</div></td>
+    <td colspan='5' align='center'>pass</td>
+</tr>
+
+<tr id='pt37.3' class='hiddenRow'>
+    <td class='none'><div class='testcase'>test03_补办手续_入库</div></td>
+    <td colspan='5' align='center'>pass</td>
+</tr>
+
+<tr id='pt37.4' class='hiddenRow'>
+    <td class='none'><div class='testcase'>test04_补办手续_截留物处理_不合格退回</div></td>
+    <td colspan='5' align='center'>pass</td>
+</tr>
+
+<tr id='pt37.5' class='hiddenRow'>
+    <td class='none'><div class='testcase'>test05_补办手续_不合格退回出库</div></td>
+    <td colspan='5' align='center'>pass</td>
+</tr>
+
+<tr id='pt37.6' class='hiddenRow'>
+    <td class='none'><div class='testcase'>test06_补办手续_不合格退回_出库记录查询</div></td>
+    <td colspan='5' align='center'>pass</td>
+</tr>
+
+<tr class='passClass'>
+    <td>YWLC.test截留_补办手续_入库_截留处理_不合格销毁.xdwcy_TestCase</td>
+    <td>7</td>
+    <td>7</td>
+    <td>0</td>
+    <td>0</td>
+    <td><a href="javascript:showClassDetail('c38',7)">Detail</a></td>
+</tr>
+
+<tr id='pt38.1' class='hiddenRow'>
+    <td class='none'><div class='testcase'>test01_实验室检疫_录单</div></td>
+    <td colspan='5' align='center'>pass</td>
+</tr>
+
+<tr id='pt38.2' class='hiddenRow'>
+    <td class='none'><div class='testcase'>test02_补办手续_截留物处理查询</div></td>
+    <td colspan='5' align='center'>pass</td>
+</tr>
+
+<tr id='pt38.3' class='hiddenRow'>
+    <td class='none'><div class='testcase'>test03_补办手续_入库</div></td>
+    <td colspan='5' align='center'>pass</td>
+</tr>
+
+<tr id='pt38.4' class='hiddenRow'>
+    <td class='none'><div class='testcase'>test04_补办手续_截留物处理_不合格销毁</div></td>
+    <td colspan='5' align='center'>pass</td>
+</tr>
+
+<tr id='pt38.5' class='hiddenRow'>
+    <td class='none'><div class='testcase'>test05_补办手续_不合格销毁出库</div></td>
+    <td colspan='5' align='center'>pass</td>
+</tr>
+
+<tr id='pt38.6' class='hiddenRow'>
+    <td class='none'><div class='testcase'>test06_补办手续_不合格销毁_出库记录查询</div></td>
+    <td colspan='5' align='center'>pass</td>
+</tr>
+
+<tr id='pt38.7' class='hiddenRow'>
+    <td class='none'><div class='testcase'>test07_补办手续_不合格销毁_销毁单据查询</div></td>
+    <td colspan='5' align='center'>pass</td>
+</tr>
+
+<tr class='passClass'>
+    <td>YWLC.test截留_补办手续_入库_截留处理_合格放行.xdwcy_TestCase</td>
+    <td>6</td>
+    <td>6</td>
+    <td>0</td>
+    <td>0</td>
+    <td><a href="javascript:showClassDetail('c39',6)">Detail</a></td>
+</tr>
+
+<tr id='pt39.1' class='hiddenRow'>
+    <td class='none'><div class='testcase'>test01_实验室检疫_录单</div></td>
+    <td colspan='5' align='center'>pass</td>
+</tr>
+
+<tr id='pt39.2' class='hiddenRow'>
+    <td class='none'><div class='testcase'>test02_截留物处理查询</div></td>
+    <td colspan='5' align='center'>pass</td>
+</tr>
+
+<tr id='pt39.3' class='hiddenRow'>
+    <td class='none'><div class='testcase'>test03_补办手续_入库</div></td>
+    <td colspan='5' align='center'>pass</td>
+</tr>
+
+<tr id='pt39.4' class='hiddenRow'>
+    <td class='none'><div class='testcase'>test04_截留物处理_合格放行</div></td>
+    <td colspan='5' align='center'>pass</td>
+</tr>
+
+<tr id='pt39.5' class='hiddenRow'>
+    <td class='none'><div class='testcase'>test05_补办手续_合格放行出库</div></td>
+    <td colspan='5' align='center'>pass</td>
+</tr>
+
+<tr id='pt39.6' class='hiddenRow'>
+    <td class='none'><div class='testcase'>test06_出库记录查询</div></td>
+    <td colspan='5' align='center'>pass</td>
+</tr>
+
+<tr class='passClass'>
+    <td>YWLC.test截留_补办手续_入库_截留处理_移交法制部门.xdwcy_TestCase</td>
+    <td>5</td>
+    <td>5</td>
+    <td>0</td>
+    <td>0</td>
+    <td><a href="javascript:showClassDetail('c40',5)">Detail</a></td>
+</tr>
+
+<tr id='pt40.1' class='hiddenRow'>
+    <td class='none'><div class='testcase'>test01_实验室检疫_录单</div></td>
+    <td colspan='5' align='center'>pass</td>
+</tr>
+
+<tr id='pt40.2' class='hiddenRow'>
+    <td class='none'><div class='testcase'>test02_截留物处理查询</div></td>
+    <td colspan='5' align='center'>pass</td>
+</tr>
+
+<tr id='pt40.3' class='hiddenRow'>
+    <td class='none'><div class='testcase'>test03_补办手续_入库</div></td>
+    <td colspan='5' align='center'>pass</td>
+</tr>
+
+<tr id='pt40.4' class='hiddenRow'>
+    <td class='none'><div class='testcase'>test04_补办手续_移交法制部门</div></td>
+    <td colspan='5' align='center'>pass</td>
+</tr>
+
+<tr id='pt40.5' class='hiddenRow'>
+    <td class='none'><div class='testcase'>test05_补办手续_移交法制部门_查询</div></td>
+    <td colspan='5' align='center'>pass</td>
+</tr>
+
+<tr class='passClass'>
+    <td>YWLC.test放行.xdwcy_TestCase</td>
+    <td>1</td>
+    <td>1</td>
+    <td>0</td>
+    <td>0</td>
+    <td><a href="javascript:showClassDetail('c41',1)">Detail</a></td>
+</tr>
+
+<tr id='pt41.1' class='hiddenRow'>
+    <td class='none'><div class='testcase'>test01_放行_录单</div></td>
+    <td colspan='5' align='center'>pass</td>
+</tr>
+
+<tr class='passClass'>
+    <td>YWLC.test退回_立即.xdwcy_TestCase</td>
+    <td>2</td>
+    <td>2</td>
+    <td>0</td>
+    <td>0</td>
+    <td><a href="javascript:showClassDetail('c42',2)">Detail</a></td>
+</tr>
+
+<tr id='pt42.1' class='hiddenRow'>
+    <td class='none'><div class='testcase'>test01_退回_立即</div></td>
+    <td colspan='5' align='center'>pass</td>
+</tr>
+
+<tr id='pt42.2' class='hiddenRow'>
+    <td class='none'><div class='testcase'>test02_现场退回记录</div></td>
+    <td colspan='5' align='center'>pass</td>
+</tr>
+
+<tr class='passClass'>
+    <td>YWLC.test退回_限期_入库_退回出库.xdwcy_TestCase</td>
+    <td>4</td>
+    <td>4</td>
+    <td>0</td>
+    <td>0</td>
+    <td><a href="javascript:showClassDetail('c43',4)">Detail</a></td>
+</tr>
+
+<tr id='pt43.1' class='hiddenRow'>
+    <td class='none'><div class='testcase'>test01_限期退回_录单</div></td>
+    <td colspan='5' align='center'>pass</td>
+</tr>
+
+<tr id='pt43.2' class='hiddenRow'>
+    <td class='none'><div class='testcase'>test02_限期退回_入库</div></td>
+    <td colspan='5' align='center'>pass</td>
+</tr>
+
+<tr id='pt43.3' class='hiddenRow'>
+    <td class='none'><div class='testcase'>test03_限期退回_出库</div></td>
+    <td colspan='5' align='center'>pass</td>
+</tr>
+
+<tr id='pt43.4' class='hiddenRow'>
+    <td class='none'><div class='testcase'>test04_限期退回_出库记录</div></td>
+    <td colspan='5' align='center'>pass</td>
+</tr>
+
+<tr class='passClass'>
+    <td>YWLC.test退回_限期_转库_退回出库.xdwcy_TestCase</td>
+    <td>6</td>
+    <td>6</td>
+    <td>0</td>
+    <td>0</td>
+    <td><a href="javascript:showClassDetail('c44',6)">Detail</a></td>
+</tr>
+
+<tr id='pt44.1' class='hiddenRow'>
+    <td class='none'><div class='testcase'>test01_限期退回_录单</div></td>
+    <td colspan='5' align='center'>pass</td>
+</tr>
+
+<tr id='pt44.2' class='hiddenRow'>
+    <td class='none'><div class='testcase'>test02_延期退回_转库</div></td>
+    <td colspan='5' align='center'>pass</td>
+</tr>
+
+<tr id='pt44.3' class='hiddenRow'>
+    <td class='none'><div class='testcase'>test03_延期退回_转库单据查询</div></td>
+    <td colspan='5' align='center'>pass</td>
+</tr>
+
+<tr id='pt44.4' class='hiddenRow'>
+    <td class='none'><div class='testcase'>test04_延期退回_转库确认接收</div></td>
+    <td colspan='5' align='center'>pass</td>
+</tr>
+
+<tr id='pt44.5' class='hiddenRow'>
+    <td class='none'><div class='testcase'>test05_延期退回_出库</div></td>
+    <td colspan='5' align='center'>pass</td>
+</tr>
+
+<tr id='pt44.6' class='hiddenRow'>
+    <td class='none'><div class='testcase'>test06_延期退回_出库记录</div></td>
+    <td colspan='5' align='center'>pass</td>
+</tr>
+
+<tr class='passClass'>
+    <td>YWLC.test销毁_入库_销毁出库.xdwcy_TestCase</td>
+    <td>4</td>
+    <td>4</td>
+    <td>0</td>
+    <td>0</td>
+    <td><a href="javascript:showClassDetail('c45',4)">Detail</a></td>
+</tr>
+
+<tr id='pt45.1' class='hiddenRow'>
+    <td class='none'><div class='testcase'>test01_销毁_录单</div></td>
+    <td colspan='5' align='center'>pass</td>
+</tr>
+
+<tr id='pt45.2' class='hiddenRow'>
+    <td class='none'><div class='testcase'>test02_销毁_入库</div></td>
+    <td colspan='5' align='center'>pass</td>
+</tr>
+
+<tr id='pt45.3' class='hiddenRow'>
+    <td class='none'><div class='testcase'>test03_销毁_出库</div></td>
+    <td colspan='5' align='center'>pass</td>
+</tr>
+
+<tr id='pt45.4' class='hiddenRow'>
+    <td class='none'><div class='testcase'>test04_销毁单据查询</div></td>
+    <td colspan='5' align='center'>pass</td>
+</tr>
+
+<tr class='passClass'>
+    <td>YWLC.test销毁_转库_销毁出库.xdwcy_TestCase</td>
+    <td>6</td>
+    <td>6</td>
+    <td>0</td>
+    <td>0</td>
+    <td><a href="javascript:showClassDetail('c46',6)">Detail</a></td>
+</tr>
+
+<tr id='pt46.1' class='hiddenRow'>
+    <td class='none'><div class='testcase'>test01_销毁_录单</div></td>
+    <td colspan='5' align='center'>pass</td>
+</tr>
+
+<tr id='pt46.2' class='hiddenRow'>
+    <td class='none'><div class='testcase'>test02_销毁_转库</div></td>
+    <td colspan='5' align='center'>pass</td>
+</tr>
+
+<tr id='pt46.3' class='hiddenRow'>
+    <td class='none'><div class='testcase'>test03_销毁_转库单据查询</div></td>
+    <td colspan='5' align='center'>pass</td>
+</tr>
+
+<tr id='pt46.4' class='hiddenRow'>
+    <td class='none'><div class='testcase'>test04_销毁_转库确认接收</div></td>
+    <td colspan='5' align='center'>pass</td>
+</tr>
+
+<tr id='pt46.5' class='hiddenRow'>
+    <td class='none'><div class='testcase'>test05_销毁_出库</div></td>
+    <td colspan='5' align='center'>pass</td>
+</tr>
+
+<tr id='pt46.6' class='hiddenRow'>
+    <td class='none'><div class='testcase'>test06_销毁单据</div></td>
+    <td colspan='5' align='center'>pass</td>
+</tr>
+
+<tr class='passClass'>
+    <td>YWLC.test隔离检疫_检疫处理_不合格退回.xdwcy_TestCase</td>
+    <td>3</td>
+    <td>3</td>
+    <td>0</td>
+    <td>0</td>
+    <td><a href="javascript:showClassDetail('c47',3)">Detail</a></td>
+</tr>
+
+<tr id='pt47.1' class='hiddenRow'>
+    <td class='none'><div class='testcase'>test01_隔离检疫_录单</div></td>
+    <td colspan='5' align='center'>pass</td>
+</tr>
+
+<tr id='pt47.2' class='hiddenRow'>
+    <td class='none'><div class='testcase'>test02_隔离检疫_处理_不合格退回</div></td>
+    <td colspan='5' align='center'>pass</td>
+</tr>
+
+<tr id='pt47.3' class='hiddenRow'>
+    <td class='none'><div class='testcase'>test03_隔离检疫_处理_不合格退回_审核</div></td>
+    <td colspan='5' align='center'>pass</td>
+</tr>
+
+<tr class='passClass'>
+    <td>YWLC.test隔离检疫_检疫处理_不合格销毁.xdwcy_TestCase</td>
+    <td>3</td>
+    <td>3</td>
+    <td>0</td>
+    <td>0</td>
+    <td><a href="javascript:showClassDetail('c48',3)">Detail</a></td>
+</tr>
+
+<tr id='pt48.1' class='hiddenRow'>
+    <td class='none'><div class='testcase'>test01_隔离检疫_录单</div></td>
+    <td colspan='5' align='center'>pass</td>
+</tr>
+
+<tr id='pt48.2' class='hiddenRow'>
+    <td class='none'><div class='testcase'>test02_隔离检疫_处理_不合格销毁</div></td>
+    <td colspan='5' align='center'>pass</td>
+</tr>
+
+<tr id='pt48.3' class='hiddenRow'>
+    <td class='none'><div class='testcase'>test03_隔离检疫_处理_不合格销毁_审核</div></td>
+    <td colspan='5' align='center'>pass</td>
+</tr>
+
+<tr class='passClass'>
+    <td>YWLC.test隔离检疫_检疫处理_合格放行.xdwcy_TestCase</td>
+    <td>3</td>
+    <td>3</td>
+    <td>0</td>
+    <td>0</td>
+    <td><a href="javascript:showClassDetail('c49',3)">Detail</a></td>
+</tr>
+
+<tr id='pt49.1' class='hiddenRow'>
+    <td class='none'><div class='testcase'>test01_隔离检疫_录单</div></td>
+    <td colspan='5' align='center'>pass</td>
+</tr>
+
+<tr id='pt49.2' class='hiddenRow'>
+    <td class='none'><div class='testcase'>test02_隔离检疫_处理_合格放行</div></td>
+    <td colspan='5' align='center'>pass</td>
+</tr>
+
+<tr id='pt49.3' class='hiddenRow'>
+    <td class='none'><div class='testcase'>test03_隔离检疫_处理_合格放行_审核</div></td>
+    <td colspan='5' align='center'>pass</td>
+</tr>
+
+<tr id='total_row'>
+    <td>Total</td>
+    <td>301</td>
+    <td>297</td>
+    <td>4</td>
+    <td>0</td>
+    <td>&nbsp;</td>
+</tr>
+</table>
+
+<div id='ending'>&nbsp;</div>
+
+</body>
+</html>
